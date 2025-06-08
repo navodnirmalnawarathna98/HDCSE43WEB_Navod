@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- Creating an Array
+Using an array literal is the easiest way to create a JavaScript Array.
+
+Syntax:
+
+const array_name = [item1, item2, ...];      
+It is a common practice to declare arrays with the const keyword. -->
+
+<p id="demo"></p>
+
+<script>
+const cars = [
+  "Saab",
+  "Volvo",
+  "BMW",
+  20
+];
+console.log("my Array",cars);
+console.log("myArray value 1 cars[0]",cars[0]);
+console.log("myArray value 4 cars[3]",cars[3]);
+
+document.getElementById("demo").innerHTML = cars;
+
+
+</script>
+</body>
+</html>

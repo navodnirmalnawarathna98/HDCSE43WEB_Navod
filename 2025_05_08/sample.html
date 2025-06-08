@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Basics for Grade 10</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    table, th, td { border: 1px solid black; 
+        border-collapse: collapse; padding: 8px; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+
+  <h2>1. Form Validation</h2>
+  <form id="studentForm">
+    Name: <input type="text" id="name"><br><br>
+    Age: <input type="number" id="age"><br><br>
+    <button type="submit">Submit</button>
+    <p class="error" id="errorMsg"></p>
+  </form>
+
+  <hr>
+
+  <h2>2. Display Students from JSON</h2>
+  <table id="studentTable">
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>ff</th>
+    </tr>
+  </table>
+
+  <hr>
+
+  <h2>3. Using Arrays and Loops</h2>
+  <p id="arrayOutput"></p>
+
+  <script>
+    // 🌟 1. Form Validation
+    document.getElementById('studentForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // stop form from refreshing the page
+
+      let name = document.getElementById('name').value.trim();
+      let age = document.getElementById('age').value.trim();
+      let error = '';
+
+      if (name === '' || age === '') {
+        error = 'Please enter both name and age.';
+      } else if (isNaN(age) || age <= 0) {
+        error = 'Please enter a valid age.';
+      }
+
+      document.getElementById('errorMsg').innerText = error;
+
+      if (error === '') {
+        alert('Form submitted successfully!');
+      }
+    });
+
+    // 🌟 2. Fetch values from sample JSON and show in table
+    let students = [
+        { 
+            name: "Alice", 
+            age: 15 
+        },
+      { name: "Bob", age: 16 },
+      { name: "Charlie", age: 14 }
+    ];
+
+    console.log("type", typeof(students));
+    console.log("values", students);
+    console.log("access array", students[1]);
+    console.log("access array throught value", students[1].age);
+
+    let table = document.getElementById('studentTable');
+
+    // Use for loop to show data in table
+    for (let i = 0; i < students.length; i++) {
+      let row = table.insertRow();
+      let cell1 = row.insertCell(0);
+      let cell2 = row.insertCell(1);
+      cell1.innerText = students[i].name;
+      cell2.innerText = students[i].age;
+    }
+
+    // 🌟 3. Using Arrays and Accessing Values
+    let fruits = ["Apple", "Banana", "Orange", "Mango"];
+
+    let output = "My favorite fruits are: ";
+    for (let i = 0; i < fruits.length; i++) {
+      output += fruits[i] + " ";
+    }
+
+    document.getElementById('arrayOutput').innerText = output;
+  </script>
+
+</body>
+</html>
+
+
+
